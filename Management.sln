@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.API", "Management.API\Management.API.csproj", "{73E15801-5071-45DE-8FCE-F95B11FBD2D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Db", "Management.Db\Management.Db.csproj", "{86A4C927-D8E9-40E9-AE68-C89AF4958732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.DB", "Management.Db\Management.DB.csproj", "{86A4C927-D8E9-40E9-AE68-C89AF4958732}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Model", "Management.Model\Management.Model.csproj", "{F6D80EB8-CFDF-4EEF-95DF-EF3FF8683337}"
 EndProject
