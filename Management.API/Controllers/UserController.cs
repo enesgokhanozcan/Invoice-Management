@@ -34,6 +34,11 @@ namespace Management.API.Controllers
         {
             return userService.Delete(id);
         }
+        [HttpGet]
+        public General<UserViewModel> GetUsers()
+        {
+            return userService.GetUsers();
+        }
 
     }
 }

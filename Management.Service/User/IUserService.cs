@@ -14,5 +14,6 @@ namespace Management.Service.User
         public General<UserViewModel> Insert(UserViewModel newUser);
         public General<UserViewModel> Update(int id, UserViewModel userUpdate);
         public General<UserViewModel> Delete(int id);
+        public General<UserViewModel> GetUsers();
     }
 }

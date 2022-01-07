@@ -100,5 +100,24 @@ namespace Management.Service.User
             }
             return result;
         }
+
+        public General<UserViewModel> GetUsers()
+        {
+            var result = new General<UserViewModel>();
+            using (var srv = new ManagementContext())
+            {
+                var data=srv.User.OrderBy(i => i.Id);
+                if (data.Any())
+                {
+                    result.List = mapper.Map<List<UserViewModel>>(data);
+                    result.IsSucces = true;
+                }
+                else
+                {
+                    result.BadMessage = "Kullanıcı bulunamadı.";
+                }
+            }
+            return result;
+        }
     }
 }
