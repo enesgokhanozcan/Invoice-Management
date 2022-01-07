@@ -6,6 +6,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Management.Db\Management.DB.csproj" />
+    <ProjectReference Include="..\Management.Model\Management.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Apartment\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
   </ItemGroup>
 
 </Project>
