@@ -1,25 +1,28 @@
 ﻿using AutoMapper;
+using Management.API.Infrastructure;
 using Management.Model;
 using Management.Model.User;
 using Management.Service.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Management.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IUserService userService;
         private readonly IMapper mapper;
 
-        public UserController(IUserService _userService,IMapper _mapper)
+        public UserController(IUserService _userService,IMapper _mapper, IMemoryCache _memoryCache) : base(_memoryCache)
         {
             userService = _userService;
             mapper = _mapper;
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
         public General<UserViewModel>Insert([FromBody] UserViewModel newUser)
         {
             return userService.Insert(newUser);
