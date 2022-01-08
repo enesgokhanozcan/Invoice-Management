@@ -3,7 +3,6 @@ using Management.API.Infrastructure;
 using Management.Model;
 using Management.Model.User;
 using Management.Service.User;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 

@@ -1,5 +1,6 @@
 using AutoMapper;
 using Management.API.Infrastructure;
+using Management.Service.Apartment;
 using Management.Service.User;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,7 @@ namespace Management.API
             IMapper mapper = _mappingProfile.CreateMapper();
             services.AddSingleton(mapper);
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IApartmentService, ApartmentService>();
             services.AddMemoryCache();
             services.AddScoped<LoginFilter>();
             services.AddControllers();
