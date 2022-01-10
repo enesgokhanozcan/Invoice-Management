@@ -10,8 +10,8 @@ namespace Management.Service.Apartment
 {
     public interface IApartmentService
     {
-        public General<ApartmentViewModel> Insert(ApartmentViewModel newApartment);
-        public General<ApartmentViewModel> Update(int id, ApartmentUpdateModel apartmentUpdate);
+        public General<ApartmentInsertModel> Insert(ApartmentInsertModel newApartment);
+        public General<ApartmentUpdateModel> Update(int id, ApartmentUpdateModel apartmentUpdate);
         public General<ApartmentViewModel> Delete(int id);
         public General<ApartmentViewModel> ListApartment();
     }

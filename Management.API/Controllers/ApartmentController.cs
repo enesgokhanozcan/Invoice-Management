@@ -21,12 +21,12 @@ namespace Management.API.Controllers
             mapper = _mapper;
         }
         [HttpPost]
-        public General<ApartmentViewModel> Insert([FromBody] ApartmentViewModel newApartment)
+        public General<ApartmentInsertModel> Insert([FromBody] ApartmentInsertModel newApartment)
         {
             return apartmentService.Insert(newApartment);
         }
         [HttpPut("{id}")]
-        public General<ApartmentViewModel> Update(int id, [FromBody] ApartmentUpdateModel apartmentUpdate)
+        public General<ApartmentUpdateModel> Update(int id, [FromBody] ApartmentUpdateModel apartmentUpdate)
         {
             return apartmentService.Update(id, apartmentUpdate);
         }

@@ -57,24 +57,25 @@ namespace Management.Service.Apartment
             return result;
         }
 
-        public General<ApartmentViewModel> Insert(ApartmentViewModel newApartment)
+        public General<ApartmentInsertModel> Insert(ApartmentInsertModel newApartment)
         {
-            var result = new General<ApartmentViewModel>() { IsSucces = false };
+            var result = new General<ApartmentInsertModel>() { IsSucces = false };
             var model = mapper.Map<Management.DB.Entities.Apartment>(newApartment);
             using (var srv = new ManagementContext())
             {
                 model.Idatetime = DateTime.Now;
                 srv.Apartment.Add(model);
+                model.Iuser = 1;
                 srv.SaveChanges();
-                result.Entity = mapper.Map<ApartmentViewModel>(model);
+                result.Entity = mapper.Map<ApartmentInsertModel>(model);
                 result.IsSucces = true;
             }
             return result;
         }
 
-        public General<ApartmentViewModel> Update(int id, ApartmentUpdateModel apartmentUpdate)
+        public General<ApartmentUpdateModel> Update(int id, ApartmentUpdateModel apartmentUpdate)
         {
-            var result = new General<ApartmentViewModel>();
+            var result = new General<ApartmentUpdateModel>();
             using (var srv = new ManagementContext())
             {
                 var data = srv.Apartment.SingleOrDefault(i => i.Id == id);
@@ -85,7 +86,7 @@ namespace Management.Service.Apartment
                     data.AwaterBill = apartmentUpdate.AwaterBill;
                     data.Adues = apartmentUpdate.Adues;
                     srv.SaveChanges();
-                    result.Entity = mapper.Map<ApartmentViewModel>(apartmentUpdate);
+                    result.Entity = mapper.Map<ApartmentUpdateModel>(apartmentUpdate);
                     result.IsSucces = true;
                 }
                 else

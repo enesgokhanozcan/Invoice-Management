@@ -37,6 +37,8 @@ namespace Management.API.Controllers
                     memoryCache.Set(key: $"LoginUser", _response.Entity);
                 }
                 response.Entity = true;
+                response.IsSucces = true;
+                response.SuccesMessage = "Giriş işlemi başarıyla gerçekleştirilmiştir.";
             }
             return response;
         }
