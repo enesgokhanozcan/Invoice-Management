@@ -21,16 +21,20 @@ namespace Management.API.Controllers
             mapper = _mapper;
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
         public General<ApartmentInsertModel> Insert([FromBody] ApartmentInsertModel newApartment)
         {
+            newApartment.Iuser = CurrentUser.Id;
             return apartmentService.Insert(newApartment);
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(LoginFilter))]
         public General<ApartmentUpdateModel> Update(int id, [FromBody] ApartmentUpdateModel apartmentUpdate)
         {
             return apartmentService.Update(id, apartmentUpdate);
         }
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(LoginFilter))]
         public General<ApartmentViewModel> Delete(int id)
         {
             return apartmentService.Delete(id);

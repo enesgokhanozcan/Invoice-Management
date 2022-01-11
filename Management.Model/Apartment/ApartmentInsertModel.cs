@@ -19,5 +19,6 @@ namespace Management.Model.Apartment
         public int AgasBill { get; set; }
         public int Adues { get; set; }
         public DateTime Idatetime { get; set; }
+        public int Iuser { get; set; }
     }
 }

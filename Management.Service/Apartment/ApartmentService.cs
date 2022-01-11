@@ -65,7 +65,6 @@ namespace Management.Service.Apartment
             {
                 model.Idatetime = DateTime.Now;
                 srv.Apartment.Add(model);
-                model.Iuser = 1;
                 srv.SaveChanges();
                 result.Entity = mapper.Map<ApartmentInsertModel>(model);
                 result.IsSucces = true;

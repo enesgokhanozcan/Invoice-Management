@@ -6,25 +6,27 @@ using System;
 
 namespace Management.API.Infrastructure
 {
-    public class LoginFilter : Attribute, IActionFilter
+    public class AuthFilter : Attribute, IActionFilter
     {
         private readonly IMemoryCache memoryCache;
-        public LoginFilter(IMemoryCache _memoryCache)
+        public AuthFilter(IMemoryCache _memoryCache)
         {
             memoryCache = _memoryCache;
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            return ;
+            return;
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            if (!memoryCache.TryGetValue(key: $"LoginUser", out UserViewModel loginuser))
             {
-                context.Result = new BadRequestObjectResult("Lütfen giriş yapınız.");
+                if (!memoryCache.TryGetValue(key: $"AuthUser", out UserViewModel admin))
+                {
+                    context.Result = new BadRequestObjectResult("Lütfen admin olarak giriş yapınız.");
+                }
+                return;
             }
-            return;
         }
     }
 }
