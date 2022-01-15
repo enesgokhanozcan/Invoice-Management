@@ -9,6 +9,7 @@ namespace Creditcard.Core
     public interface ICreditcardService
     {
         List<Creditcard> GetCreditcards();
+        Creditcard AddCreditcard(Creditcard creditcard);
 
     }
 }

@@ -42,6 +42,8 @@ namespace Management.API
             services.AddMemoryCache();
             services.AddScoped<LoginFilter>();
             services.AddScoped<AuthFilter>();
+            services.AddSingleton<IDbClient,DbClient>();
+            services.Configure<CreditcardDbConfig>(Configuration);
             services.AddTransient<ICreditcardService, CreditcardService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>

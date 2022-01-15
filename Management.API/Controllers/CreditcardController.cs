@@ -20,6 +20,12 @@ namespace Management.API.Controllers
         {
             return Ok(creditcardService.GetCreditcards());
         }
+        [HttpPost]
+        public IActionResult AddCreditcard (Creditcard.Core.Creditcard creditcard)
+        {
+            creditcardService.AddCreditcard(creditcard);
+            return Ok(creditcard);
+        }
 
     }
 }
