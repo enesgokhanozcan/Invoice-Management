@@ -7,7 +7,6 @@ using Management.DB.Entities;
 
 namespace Management.DB.Entities.DataContext
 {
-    //PM> Scaffold-DbContext "Server=.;Database=Management;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -Contextdir Entities/DataContext -Context ManagementContext -Project Management.DB -StartUpProject Management.DB -NoPluralize -Force
     public partial class ManagementContext : DbContext
     {
         public ManagementContext()
@@ -121,7 +120,6 @@ namespace Management.DB.Entities.DataContext
                     .IsUnicode(false);
 
                 entity.Property(e => e.PlateCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 

@@ -17,6 +17,7 @@ namespace Management.Model.User
         public string PlateCode { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime Idatetime { get; set; }
+        public bool IsAdmin { get; set; }
 
     }
 }

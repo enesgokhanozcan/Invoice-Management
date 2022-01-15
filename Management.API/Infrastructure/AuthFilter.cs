@@ -1,6 +1,7 @@
 ﻿using Management.Model.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 
@@ -13,6 +14,7 @@ namespace Management.API.Infrastructure
         {
             memoryCache = _memoryCache;
         }
+ 
         public void OnActionExecuted(ActionExecutedContext context)
         {
             return;
@@ -20,13 +22,7 @@ namespace Management.API.Infrastructure
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            {
-                if (!memoryCache.TryGetValue(key: $"AuthUser", out UserViewModel admin))
-                {
-                    context.Result = new BadRequestObjectResult("Lütfen admin olarak giriş yapınız.");
-                }
-                return;
-            }
+            return;
         }
     }
 }

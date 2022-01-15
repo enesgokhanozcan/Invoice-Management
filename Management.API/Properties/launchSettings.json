@@ -14,7 +14,10 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_NAME": "CreditardDb",
+        "CREDITCARD_COLLECTION_NAME": "CreditCard"
+
       }
     },
     "Management.API": {
@@ -25,7 +28,9 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
-      "dotnetRunMessages": "true"
+      "dotnetRunMessages": "true",
+      "DATABASE_NAME": "CreditardDb",
+      "CREDITCARD_COLLECTION_NAME": "CreditCard"
     }
   }
 }

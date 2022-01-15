@@ -8,6 +8,7 @@ namespace Management.Model.Apartment
 {
     public class ApartmentViewModel
     {
+        public int Id { get; set; }
         public int Ano { get; set; }
         public string Astatus { get; set; }
         public string Atype { get; set; }

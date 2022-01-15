@@ -26,7 +26,13 @@ namespace Management.DB.Entities
         public DateTime? Udatetime { get; set; }
         public int Iuser { get; set; }
         public int? Uuser { get; set; }
+        public bool IsAdmin { get; set; }
 
         public virtual ICollection<Apartment> Apartment { get; set; }
+
+        public object Take(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

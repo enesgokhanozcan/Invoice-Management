@@ -21,7 +21,6 @@ namespace Management.API.Controllers
             mapper = _mapper;
         }
         [HttpPost]
-        [ServiceFilter(typeof(LoginFilter))]
         public General<UserViewModel>Insert([FromBody] UserViewModel newUser)
         {
             return userService.Insert(newUser);
