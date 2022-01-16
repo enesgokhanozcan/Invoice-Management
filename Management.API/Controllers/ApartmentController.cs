@@ -44,5 +44,10 @@ namespace Management.API.Controllers
         {
             return apartmentService.ListApartment();
         }
+        [HttpGet("{id}")]
+        public General<ApartmentViewModel> GetById(int id)
+        {
+            return apartmentService.GetById(id);
+        }
     }
 }

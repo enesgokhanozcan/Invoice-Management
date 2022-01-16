@@ -95,5 +95,22 @@ namespace Management.Service.Apartment
             }
             return result;
         }
+
+        public General<ApartmentViewModel> GetById(int id)
+        {
+            var result = new General<ApartmentViewModel>();
+            using (var service = new ManagementContext())
+            {
+                var data = service.Apartment.SingleOrDefault(a => a.Id == id);
+                if (data is null)
+                {
+                    result.BadMessage = "No apartment found!";
+                    return result;
+                }
+                result.Entity = mapper.Map<ApartmentViewModel>(data);
+                result.IsSucces = true;
+            }
+            return result;
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace Management.Service.Apartment
         public General<ApartmentUpdateModel> Update(int id, ApartmentUpdateModel apartmentUpdate);
         public General<ApartmentViewModel> Delete(int id);
         public General<ApartmentViewModel> ListApartment();
+        public General<ApartmentViewModel> GetById(int id);
     }
 }
