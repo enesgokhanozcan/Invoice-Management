@@ -50,17 +50,19 @@ namespace Management.API.Controllers
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new List<Claim>
             {
+                //new Claim(ClaimTypes.SerialNumber,user.Id.ToString()),
+                //new Claim(ClaimTypes.Role, user.IsAdmin.ToString()),
                 new Claim(ClaimTypes.Name, user.Name),
                 new Claim(ClaimTypes.Surname, user.Surname),
-                new Claim(ClaimTypes.Email, user.Email),
-
+                new Claim(ClaimTypes.Email, user.Email)
             };
-            claims.Add(new Claim(ClaimTypes.Role, user.IsAdmin.ToString()));
+            //claims.Add(new Claim(ClaimTypes.Role, user.IsAdmin.ToString()));
+            //claims.Add(new Claim(ClaimTypes.SerialNumber,user.Id.ToString())); ;
 
             var token = new JwtSecurityToken(config["Jwt:Issuer"],
               config["Jwt:Audience"],
               claims,
-              expires: DateTime.Now.AddMinutes(15),
+              expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
